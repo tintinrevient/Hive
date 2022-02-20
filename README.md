@@ -194,12 +194,55 @@ the lamb was sure to go
 ```
 
 2. Execute the following statements in the Hive shell:
-```bash
-CREATE TABLE docs (line STRING);
+```hive
+hive> CREATE TABLE docs (line STRING);
+OK
+Time taken: 1.717 seconds
 
-LOAD DATA LOCAL INPATH 'docs' OVERWRITE INTO TABLE docs;
+hive> LOAD DATA LOCAL INPATH 'docs' OVERWRITE INTO TABLE docs;
+Loading data to table default.docs
+OK
+Time taken: 1.813 seconds
 
-CREATE TABLE words AS SELECT word, count(1) AS count FROM (SELECT explode(split(line, ' ')) AS word FROM docs) w GROUP BY word;
+hive> CREATE TABLE words AS SELECT word, count(1) AS count FROM (SELECT explode(split(line, ' ')) AS word FROM docs) w GROUP BY word;
+Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
+2022-02-20 22:08:55,320 Stage-1 map = 0%,  reduce = 0%
+2022-02-20 22:09:01,787 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.29 sec
+2022-02-20 22:09:08,062 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 6.02 sec
+MapReduce Total cumulative CPU time: 6 seconds 20 msec
+Ended Job = job_1645391263028_0001
+Moving data to directory hdfs://0.0.0.0:9000/user/hive/warehouse/words
+MapReduce Jobs Launched: 
+Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 6.02 sec   HDFS Read: 8732 HDFS Write: 200 SUCCESS
+Total MapReduce CPU Time Spent: 6 seconds 20 msec
+OK
+Time taken: 28.832 seconds
+```
+
+3. The result is as below:
+```hive
+hive> SELECT * FROM words;
+OK
+Mary	2
+a	1
+and	1
+as	1
+everywhere	1
+fleece	1
+go	1
+had	1
+its	1
+lamb	2
+little	1
+snow	1
+sure	1
+that	1
+the	1
+to	1
+was	2
+went	1
+white	1
+Time taken: 3.306 seconds, Fetched: 19 row(s)
 ```
 
 ## References
