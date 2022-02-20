@@ -160,7 +160,7 @@ start-yarn.sh
 
 ### Hive
 
-1. Download the Hive binary from [this link](https://hive.apache.org/downloads.html).
+1. Download the Hive binary from [this link](https://hive.apache.org/downloads.html):
 ```bash
 mv apache-hive-3.1.2-bin /usr/local/hive
 ```
