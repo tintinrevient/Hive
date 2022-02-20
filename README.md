@@ -162,7 +162,7 @@ start-yarn.sh
 
 1. Download the Hive binary from [this link](https://hive.apache.org/downloads.html):
 ```bash
-mv apache-hive-3.1.2-bin /usr/local/hive
+sudo mv apache-hive-3.1.2-bin /usr/local/hive
 ```
 
 2. Update `.bashrc`:
