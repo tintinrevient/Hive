@@ -176,7 +176,7 @@ export PATH=$PATH:$HIVE_HOME/bin
 schematool -initSchema -dbType derby
 ```
 
-4. Start Hive:
+4. Start the `Hive shell`:
 ```bash
 hive
 ```
