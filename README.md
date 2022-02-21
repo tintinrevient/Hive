@@ -183,8 +183,6 @@ hive
 
 ## Word Count
 
-### Hive
-
 1. Prepare the local file `docs` as below:
 ```
 Mary had a little lamb
