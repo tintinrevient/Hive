@@ -30,6 +30,15 @@ sudo rm /etc/alternatives/java
 sudo ln -s /usr/lib/jvm/java-8-openjdk-amd64/bin/java /etc/alternatives/java
 ```
 
+### SSH
+
+1. Configure to execute `ssh localhost` without password:
+```bash
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+```
+
 ### Hadoop
 
 1. Download the Hadoop binary:
@@ -246,3 +255,4 @@ Time taken: 3.306 seconds, Fetched: 19 row(s)
 ## References
 * https://www.vultr.com/docs/install-and-configure-apache-hadoop-on-ubuntu-20-04/
 * https://cwiki.apache.org/confluence/display/hive/avroserde
+* https://superuser.com/questions/336226/how-to-ssh-to-localhost-without-password
