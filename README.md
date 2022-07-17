@@ -294,3 +294,5 @@ hive --service metastore
 * https://cwiki.apache.org/confluence/display/hive/avroserde
 * https://superuser.com/questions/336226/how-to-ssh-to-localhost-without-password
 * https://hadoop.apache.org/docs/r3.3.1/hadoop-project-dist/hadoop-common/SingleCluster.html
+* https://cwiki.apache.org/confluence/display/Hive/StatsDev
+* https://george-jen.gitbook.io/data-science-and-apache-spark/start-hive-metastore-service.
