@@ -252,6 +252,43 @@ white	1
 Time taken: 3.306 seconds, Fetched: 19 row(s)
 ```
 
+## Postgres as Hive metastore
+
+1. Create the database `metastore` in `postgres`:
+```bash
+$ postgres -D /usr/local/var/postgres
+$ psql
+```
+
+```sql
+postgres=# CREATE DATABASE metastore;
+postgres=# \l
+                            List of databases
+   Name    |  Owner   | Encoding | Collate | Ctype |   Access privileges
+-----------+----------+----------+---------+-------+-----------------------
+ metastore | postgres | UTF8     | C       | C     | =Tc/postgres         +
+ 
+postgres=# CREATE USER hive WITH ENCRYPTED PASSWORD 'hive';
+postgres=# \du
+                                   List of roles
+ Role name |                         Attributes                         | Member of
+-----------+------------------------------------------------------------+-----------
+ postgres  | Superuser, Create role, Create DB                          | {}
+ hive      |                                                            | {}
+
+postgres=# GRANT ALL PRIVILEGES ON DATABASE metastore TO hive;
+```
+
+2. Use `schematool` to initialize schema for `postgres` metastore:
+```bash
+schematool -initSchema -dbType postgres
+```
+
+3. Start the metastore service:
+```bash
+hive --service metastore
+```
+
 ## References
 * https://www.vultr.com/docs/install-and-configure-apache-hadoop-on-ubuntu-20-04/
 * https://cwiki.apache.org/confluence/display/hive/avroserde
