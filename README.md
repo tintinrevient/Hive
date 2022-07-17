@@ -279,7 +279,7 @@ postgres=# \du
 postgres=# GRANT ALL PRIVILEGES ON DATABASE metastore TO hive;
 ```
 
-2. Use `schematool` to initialize schema for `postgres` metastore:
+2. Use `schematool` to initialize schema for `postgres` metastore using [hive-site.xml](conf/hive-site.xml) in `$HIVE_HOME/conf/hive-site.xml`:
 ```bash
 schematool -initSchema -dbType postgres
 ```
