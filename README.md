@@ -5,8 +5,8 @@
 Hive runs on top of Java and Hadoop.
 
 <p float="left">
-    <img src="pix/hive.png" width=400 />
-    <img src="pix/hive_metastore.png" width=400 />
+    <img src="pix/hive.png" width=300 />
+    <img src="pix/hive_metastore.png" width=500 />
 </p>
 
 ## Installation
